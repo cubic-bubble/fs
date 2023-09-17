@@ -23,13 +23,18 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CloudFS = void 0;
+exports.cloudPatch = void 0;
 var fs = __importStar(require("fs-extra"));
 global.isOncloud = function () { return process.env.MODE === 'cloud'; };
 // Cloud based Filesystem Interface
-function CloudFS() {
-    // Override fs method to adapt to clound
+function cloudPatch() {
+    /**
+     * Override fs methods to adapt to cloud
+     * Eg.
+     *
+     * fs.newDir = ( directory ) => { ... }
+     */
     return fs;
 }
-exports.CloudFS = CloudFS;
-exports.default = isOncloud() ? CloudFS() : fs;
+exports.cloudPatch = cloudPatch;
+exports.default = isOncloud() ? cloudPatch() : fs;
