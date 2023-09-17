@@ -1,6 +1,6 @@
 {
   "name": "@cubic-bubble/fs",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Local and cloud filesystem manager library (Cubic+)",
   "main": "./dist/index",
   "typings": "./dist/index",
