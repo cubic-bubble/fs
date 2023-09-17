@@ -7,17 +7,10 @@ declare global {
 global.isOncloud = () => { return process.env.MODE === 'cloud' }
 
 // Cloud based Filesystem Interface
-export class CloudFS {
+export function CloudFS(){
+  // Override fs method to adapt to clound
 
-  constructor(){
-
-    // TODO: Define credentials & Connect to cloud space
-
-  }
-
-  async exists( path: string ){
-    console.log('Path: ', path )
-  }
+  return fs
 }
 
-export default isOncloud() ? new CloudFS : fs
+export default isOncloud() ? CloudFS() : fs
